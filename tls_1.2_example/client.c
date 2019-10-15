@@ -218,6 +218,16 @@ int main (int argc, char **argv)
     //buf[bytes] = 0;
     //printf ("Received (%d bytes):\n[%s]\n", bytes, buf);
 
+    // testing code 
+    for (;;)
+    {
+      printf("ssl read...\n");
+      sleep(1);
+      bytes = SSL_read (ssl, buf, sizeof (buf)); /* get reply & decrypt */
+      buf[bytes] = 0;
+      printf ("Received (%d bytes):\n[%s]\n", bytes, buf);
+    }
+
     SSL_free (ssl);        /* release connection state */
   }
 
